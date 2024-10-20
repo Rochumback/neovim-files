@@ -34,7 +34,7 @@ vim.keymap.set("n", '<leader>lf', function()
 end)
 
 vim.keymap.set("n", '<leader>lr', function()
-    vim.lsp.buf.rename({ async = true })
+    vim.lsp.buf.rename()
 end)
 
 vim.keymap.set("n", 'gd', function()
@@ -49,5 +49,12 @@ end)
 
 vim.keymap.set({ "n", "t" }, "<A-2>", function()
     vim.cmd(":ToggleTerm direction=vertical size=48")
+end)
+
+vim.keymap.set({ "n", "t" }, "<A-3>", function()
+    vim.cmd("tabnew term://zsh")
+end)
+vim.keymap.set({ "n", "t" }, "<A-b>", function()
+    vim.cmd("tabnext")
 end)
 --terminal maps end
