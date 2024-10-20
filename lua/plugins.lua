@@ -1,13 +1,15 @@
 local plugins = {
+
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
         requires = { 'nvim-lua/plenary.nvim' }
     },
+    { "akinsho/toggleterm.nvim" },
+    { "ryanmsnyder/toggleterm-manager.nvim" },
+
     { "andweeb/presence.nvim" },
     { "nvim-tree/nvim-tree.lua" },
-    { "rose-pine/neovim" },
-    { "catppuccin/nvim",                  name = "catppuccin" },
 
     --LSP
     { 'williamboman/mason.nvim' },
@@ -21,16 +23,24 @@ local plugins = {
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lua" },
     { "ray-x/cmp-treesitter" },
-    { "L3MON4D3/LuaSnip" },
-    { "saadparwaiz1/cmp_luasnip" },
-    { "Saecki/crates.nvim" },
+
+
+    { 'simrat39/rust-tools.nvim' },
     --LSP
 
-    { 'nvim-treesitter/nvim-treesitter' },
+    --DAP
+    { "mfussenegger/nvim-dap" },
+    --DAP
+
+    { "rose-pine/neovim" },
+    { "catppuccin/nvim",                    name = "catppuccin" },
+    { "nvim-tree/nvim-web-devicons" },
+
     { "nvim-lualine/lualine.nvim" },
-    { "akinsho/toggleterm.nvim" },
-
-
+    -- { "arkav/lualine-lsp-progress" },
+    { 'nvim-treesitter/nvim-treesitter' },
+    { "windwp/nvim-autopairs" },
+    { 'wakatime/vim-wakatime',              lazy = false }
 }
 
 return plugins

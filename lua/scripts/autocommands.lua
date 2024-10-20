@@ -11,11 +11,3 @@ vim.api.nvim_create_autocmd("BufLeave", {
     callback = function ()
     pcall(vim.cmd, "unmap l")
 end})
-
-vim.api.nvim_create_autocmd("WinResized", {
-    pattern = ".ts",
-    callback = function(event)
-        for key, value in pairs(event) do
-            print(type(key), type(value))
-        end
-end})

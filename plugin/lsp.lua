@@ -9,7 +9,7 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "rust_analyzer" },
+    ensure_installed = { "lua_ls", "rust_analyzer", "jdtls" },
     handlers = {
         function(server_name)
             capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -18,32 +18,26 @@ require("mason-lspconfig").setup({
                 flags = {
                     debounce_text_changes = 150,
                 },
-                settings = {
-                    ["rust-analyzer"] = {
-                        completion = {
-                            postfix = {
-                                enable = false,
-                            },
-                        },
-                        cargo = {
-                            features = "all",
-                            allFeatures = true,
-                        },
-                    },
-                },
+                -- settings = {
+                --     ["rust-analyzer"] = {
+                --         completion = {
+                --             postfix = {
+                --                 enable = true,
+                --             },
+                --         },
+                --         cargo = {
+                --             features = "all",
+                --             allFeatures = true,
+                --         },
+                --     },
+                -- },
             })
         end },
 })
 
-local luasnip = require("luasnip")
 
 local cmp = require('cmp')
-cmp.setup ({
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
+cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
         ['<C-d>'] = cmp.mapping.scroll_docs(4),  -- Down
@@ -56,8 +50,6 @@ cmp.setup ({
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
             else
                 fallback()
             end
@@ -65,8 +57,6 @@ cmp.setup ({
         ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
             else
                 fallback()
             end
@@ -76,10 +66,8 @@ cmp.setup ({
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "treesitter" },
-        { name = "luasnip" },
         { name = "path" },
         { name = "buffer" },
-        { name = "crates" },
     },
     window = {
         completion = cmp.config.window.bordered({
@@ -92,4 +80,3 @@ cmp.setup ({
     },
 })
 
-luasnip.setup()
