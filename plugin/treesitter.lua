@@ -35,4 +35,4 @@ require('nvim-treesitter.configs').setup {
 }
 
 
-vim.cmd("TSUpdate")
+-- vim.cmd("TSUpdate")

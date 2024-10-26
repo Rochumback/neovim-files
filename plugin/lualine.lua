@@ -9,7 +9,9 @@ require("lualine").setup({
             statusline = 1000,
             tabline = 1000,
             winbar = 1000,
-        }
+        },
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
     },
     sections = {
         lualine_a = { 'mode' },
