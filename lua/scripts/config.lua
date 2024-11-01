@@ -1,4 +1,4 @@
-color = "catppuccin-macchiato"
+color = "catppuccin-mocha"
 
 vim.opt.updatetime = 100
 vim.diagnostic.config({ signs = false, })

@@ -24,7 +24,7 @@ local remaps = {
         end)
         -- telescope remaps
     end,
-    nvim_tree_remais = function()
+    nvim_tree_remaps = function()
         -- nvim tree remaps
         vim.keymap.set("n", "<leader>e", function()
             vim.cmd(":NvimTreeFindFileToggle")
@@ -43,6 +43,10 @@ local remaps = {
 
         vim.keymap.set("n", 'gd', function()
             vim.lsp.buf.definition()
+        end)
+
+        vim.keymap.set("n", "<leader>a", function()
+            vim.lsp.buf.code_action()
         end)
         --lsp remaps
     end,

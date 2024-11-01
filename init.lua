@@ -1,2 +1,1 @@
-require("mapleader")
 require("scripts")
