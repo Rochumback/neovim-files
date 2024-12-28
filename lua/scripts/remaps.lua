@@ -27,7 +27,7 @@ local remaps = {
     nvim_tree_remaps = function()
         -- nvim tree remaps
         vim.keymap.set("n", "<leader>e", function()
-            vim.cmd(":NvimTreeFindFileToggle")
+            vim.cmd(":NvimTreeFindFileToggle" .. vim.api.nvim_buf_get_name(0))
         end)
         -- nvim tree remaps
     end,

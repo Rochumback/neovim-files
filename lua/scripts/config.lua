@@ -1,4 +1,5 @@
-color = "catppuccin-mocha"
+-- color = "neopywal-dark"
+color = 'nordic'
 
 vim.opt.updatetime = 100
 vim.diagnostic.config({ signs = false, })

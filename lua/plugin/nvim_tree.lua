@@ -18,6 +18,7 @@ return {
             },
             filters = {
                 dotfiles = false,
+                git_ignored= false
             },
         })
 
@@ -28,6 +29,12 @@ return {
                     color = "#428850",
                     cterm_color = "65",
                     name = "Zsh"
+                },
+                toggleterm = {
+                    icon = "",
+                    color = "#428850",
+                    cterm_color = "65",
+                    name = "toggleterm"
                 }
             },
             color_icons = true,
