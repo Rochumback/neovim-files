@@ -6,21 +6,9 @@ return {
         "nvim-tree/nvim-web-devicons",
         "RedsXDD/neopywal.nvim",
         "AlexvZyl/nordic.nvim",
+        -- "xiyaowong/transparent.nvim"
     },
-
     config = function()
-        require("neopywal").setup({
-            use_palette = "catppuccin-mocha",
-            terminal_colors = true,
-            show_split_lines = true,
-            styles = {
-                booleans = { "italic" },
-                operators = { "bold" },
-            },
-            show_end_of_buffer = false,
-            -- For more plugin options please scroll down (https://github.com/RedsXDD/neopywal.nvim#Plugins)
-        })
-
         require('nordic').setup({
             after_palette = function(palette) end,
             -- This callback can be used to override highlights before they are applied.
@@ -34,11 +22,11 @@ return {
             -- Reduce the overall amount of blue in the theme (diverges from base Nord).
             reduced_blue = true,
             -- Swap the dark background with the normal one.
-            swap_backgrounds = false,
+            swap_backgrounds = true,
             -- Cursorline options.  Also includes visual/selection.
             cursorline = {
                 -- Bold font in cursorline.
-                bold = false,
+                bold = true,
                 -- Bold cursorline number.
                 bold_number = true,
                 -- Available styles: 'dark', 'light'.
@@ -56,7 +44,7 @@ return {
             },
             leap = {
                 -- Dims the backdrop when using leap.
-                dim_backdrop = true,
+                dim_backdrop = false,
             },
             ts_context = {
                 -- Enables dark background for treesitter-context window
@@ -67,8 +55,11 @@ return {
         color = color or "catppuccin-mocha"
         vim.cmd.colorscheme(color)
 
-        -- Don't using this options while not set up the alacritty background
-        -- vim.api.nvim_set_hl(0, "Normal", { bg = "none"} )
-        -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none"} )
+            local groups = {
+                "Normal", "NormalFloat", "NormalNC", "NormalSB", "Nontext"
+        }
+        for _, group in pairs( groups ) do
+            vim.api.nvim_set_hl(0, group, { bg = "none" })
+        end
     end
 }
