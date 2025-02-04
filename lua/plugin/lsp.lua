@@ -26,8 +26,8 @@ return {
             { '│', 'FloatBorder' },
         }
         local handlers = {
-            ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
             ['textDocument/signature_help'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+            ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
         }
         require("mason").setup({
             ui = {
@@ -59,22 +59,36 @@ return {
         require("blink.cmp").setup({
             keymap = { preset = 'enter' },
             completion = {
-                menu = { border = "single" },
-                documentation = { border = "single" },
+                menu = {
+                    draw = {
+                        treesitter = {
+                            enabled = true
+                        }
+                    },
+                    border = 'single'
+                },
                 ghost_text = { enabled = true },
+                documentation = {
+                    window = { border = 'single' },
+                    auto_show = true,
+                    auto_show_delay_ms = 500
+                },
             },
+
             appearance = {
                 use_nvim_cmp_as_default = true,
                 nerd_font_variant = 'mono'
             },
+
             sources = {
-                default = { "lsp", "path", "snippets", "buffer", "treesitter", },
+                default = { "lsp", "path", "snippets", "buffer", },
+                cmdline = {}
             },
             signature = {
                 enabled = true,
                 window = { border = "single" }
             },
-            opts_extend = { "sources.default" }
+            -- opts_extend = { "sources.default" }
         })
     end
 }
