@@ -13,7 +13,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.scrolloff = 12
 
-vim.opt.undofile = true
+-- vim.opt.undofile = true
 
 vim.opt.list = true
 vim.opt.listchars = [[tab:◦◦•,space: ,nbsp:␣,trail:•,eol:↴,precedes:«,extends:»]]
